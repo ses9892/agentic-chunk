@@ -122,32 +122,6 @@ flowchart TD
     D --> E[결과 출력]
 ```
 
-## 🚀 설치 및 설정
-
-### 1. 환경 설정
-
-```bash
-# 가상환경 생성 (선택사항)
-python -m venv agentic_chunking_env
-source agentic_chunking_env/bin/activate  # Linux/Mac
-# 또는
-agentic_chunking_env\Scripts\activate     # Windows
-
-# 의존성 설치
-pip install -r requirements.txt
-```
-
-### 2. OpenAI API 키 설정
-
-```bash
-export OPENAI_API_KEY="your-openai-api-key-here"
-```
-
-또는 `.env` 파일 생성:
-```
-OPENAI_API_KEY=your-openai-api-key-here
-```
-
 ## 사용법
 
 ```python
@@ -167,20 +141,40 @@ chunker.add_propositions(propositions)
 chunker.print_chunks()
 ```
 
-### 실행하기
+## 테스트 결과
 
-```bash
-python main.py
+### 샘플 텍스트 청킹 결과
+
+```
+📊 전체 통계:
+   • 총 청크 수: 8개
+   • 총 명제 수: 35개
+   • 평균 청크당 명제 수: 4.4개
+
+📈 각 청크별 명제 수:
+   청크 1: 4개 명제 - "인공지능 핵심 기술"
+   청크 2: 1개 명제 - "자연어 처리 기술"
+   청크 3: 5개 명제 - "기후 변화와 재생 에너지"
+   청크 4: 7개 명제 - "한국 전통 음식과 건강"
+   청크 5: 5개 명제 - "우주 탐사와 미래 목표"
+   청크 6: 5개 명제 - "디지털 교육 혁신"
+   청크 7: 3개 명제 - "건강한 생활 습관"
+   청크 8: 5개 명제 - "경제 원리와 변화"
 ```
 
-## 설정
+### 생성된 청크 예시
 
-API 키 설정:
-```bash
-export OPENAI_API_KEY="your-key-here"
-```
+**청크: 인공지능 핵심 기술**
+- 인공지능은 현재 우리 사회의 모든 분야에서 혁신을 이끌고 있다.
+- 머신러닝 알고리즘은 대량의 데이터를 처리하고 인간이 놓칠 수 있는 패턴을 찾아낸다.
+- 딥러닝은 머신러닝의 한 분야로, 다층 신경망을 사용하여 복잡한 문제를 해결한다.
+- 컴퓨터 비전은 기계가 시각적 정보를 해석하고 분석할 수 있도록 한다.
 
-또는 `.env` 파일 생성
+**청크: 기후 변화와 재생 에너지**
+- 기후 변화는 21세기 인류가 직면한 가장 심각한 문제 중 하나이다.
+- 지구 온난화로 인해 빙하가 녹고 해수면이 상승하고 있다.
+- 태양광과 풍력 같은 재생 에너지가 점점 더 경제적이 되고 있다.
+- 전 세계가 탄소 중립을 위해 노력하고 있다.
 
 ## 파일 구조
 
