@@ -128,24 +128,22 @@ flowchart TD
 
 ### 메타데이터 생성 상세 과정
 ```mermaid
-sequenceDiagram
-    participant Chunk as 청크
-    participant Update as _update_chunk_metadata()
-    participant LLM as OpenAI GPT
-    participant Summary as 요약 결과
-    participant Title as 제목 결과
+flowchart TD
+    A[청크 생성/업데이트] --> B[_update_chunk_metadata]
+    B --> C[명제 텍스트 결합]
+    C --> D[_generate_summary]
+    C --> E[_generate_title]
 
-    Chunk->>Update: 청크 데이터 전달
-    Update->>Update: 명제 리스트 결합
-    Update->>LLM: 요약 생성 요청
-    LLM->>Summary: 요약 텍스트 반환
-    Update->>Chunk: 요약 저장
+    D --> F[LLM 요약 요청]
+    F --> G[요약 결과 받음]
+    G --> H[청크에 요약 저장]
 
-    Update->>LLM: 제목 생성 요청
-    LLM->>Title: 제목 텍스트 반환
-    Update->>Chunk: 제목 저장
+    E --> I[LLM 제목 요청]
+    I --> J[제목 결과 받음]
+    J --> K[청크에 제목 저장]
 
-    Update->>Chunk: 메타데이터 완성
+    H --> L[메타데이터 완성]
+    K --> L
 ```
 
 ### 메타데이터 생성 표
